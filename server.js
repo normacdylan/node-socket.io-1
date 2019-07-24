@@ -37,11 +37,12 @@
 
 var net = require('net');
 
+const port = process.env.PORT || 3000
+
 var server = net.createServer(function(socket) {
 	socket.write('Echo server\r\n');
 	socket.pipe(socket);
 });
 
 // server.listen(3000, 'https://powerful-garden-58783.herokuapp.com/');
-server.listen(3000, '34.202.247.40');
-
+server.listen(port, '34.202.247.40');
