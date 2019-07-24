@@ -4,6 +4,8 @@ const express = require('express');
 const socketIO = require('socket.io');
 const path = require('path');
 
+const app = express();
+
 const PORT = 3000;
 const INDEX = path.join(__dirname, 'index.html');
 
@@ -12,6 +14,10 @@ const server = express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 const io = socketIO(server);
+
+app.get('/', function (req, res) {
+  // res.send('<h1>Hello Voting App</h1>')
+});
 
 io.on('connection', (socket) => {
   console.log('Client connected');
