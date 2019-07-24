@@ -45,4 +45,5 @@ var server = net.createServer(function(socket) {
 });
 
 // server.listen(3000, 'https://powerful-garden-58783.herokuapp.com/');
-server.listen(port, '34.202.247.40');
+// server.listen(port, '34.202.247.40');
+server.listen(port);
