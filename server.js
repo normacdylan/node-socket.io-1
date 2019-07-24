@@ -15,8 +15,8 @@ const io = socketIO(server);
 
 io.on('connection', (socket) => {
   console.log('Client connected');
-  var address = socket.handshake.address;
-  console.log('New connection from ' + address.address + ':' + address.port);
+  var clientIpAddress = sock.request.headers['x-forwarded-for'] || sock.request.connection.remoteAddress;
+  console.log(' new request from : '+clientIpAddress);
   socket.on('disconnect', () => console.log('Client disconnected'));
   io.emit('someone connected')
   socket.emit('you are connected')
