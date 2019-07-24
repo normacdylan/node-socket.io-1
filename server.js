@@ -15,7 +15,7 @@ const io = socketIO(server);
 
 io.on('connection', (socket) => {
   console.log('Client connected');
-  var address = sock.handshake.address;
+  var address = socket.handshake.address;
   console.log('New connection from ' + address.address + ':' + address.port);
   socket.on('disconnect', () => console.log('Client disconnected'));
   io.emit('someone connected')
