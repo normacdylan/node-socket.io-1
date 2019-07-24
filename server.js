@@ -12,15 +12,21 @@ const server = express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 const io = socketIO(server);
+var middleware = require('socketio-wildcard')();
+
+io.use(middleware)
 
 io.on('connection', (socket) => {
   console.log('Client connected');
   var clientIpAddress = socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress;
   console.log(' new request from : '+clientIpAddress);
   socket.on('disconnect', () => console.log('Client disconnected'));
-  io.emit('someone connected')
-  socket.emit('you are connected')
-
+  socket.on('*', function(packet){
+    console.log('packet received', packet);
+    if (packet.data) {
+      console.log('packet data', packet.data);
+    }
+  });
 });
 
 io.on('data', function(data) {
