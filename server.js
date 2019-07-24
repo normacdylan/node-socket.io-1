@@ -22,16 +22,20 @@ const io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
   socket.on('disconnect', () => console.log('Client disconnected'));
-  socket.emit('hello')
+  io.emit('msg', 'hello')
 });
 
 io.on('data', function(data) {
   io.emit('msg', data);
 })
 
+io.on("*", function(input) {
+  io.emit('msg', input.toString())
+})
+
 // io.on('data', function(data) {
 //   console.log('data received', data);
 // })
 
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+// setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 
