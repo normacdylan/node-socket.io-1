@@ -19,9 +19,9 @@ io.on('connection', (socket) => {
   io.emit('someone connected')
   socket.emit('you are connected')
   io.emit('msg', `${socket.toString()} joined`)
-  socket.use((packet, next) => {
-    console.log('Received something: ' + packet.toString());
-  })
+  // socket.use((packet, next) => {
+  //   console.log('Received something: ' + packet.toString());
+  // })
 });
 
 io.on('data', function(data) {
