@@ -22,7 +22,7 @@ const io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
   socket.on('disconnect', () => console.log('Client disconnected'));
-  io.emit('msg', `${socket.toString} joined`)
+  io.emit('msg', `${socket.toString()} joined`)
 });
 
 io.on('data', function(data) {
