@@ -4,9 +4,9 @@ const express = require('express');
 const socketIO = require('socket.io');
 const path = require('path');
 
-const app = express();
+// const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
 
 const server = express()
@@ -15,9 +15,9 @@ const server = express()
 
 const io = socketIO(server);
 
-app.get('/', function (req, res) {
-  res.send('<h1>Hello</h1>')
-});
+// app.get('/', function (req, res) {
+//   res.send('<h1>Hello</h1>')
+// });
 
 io.on('connection', (socket) => {
   console.log('Client connected');
