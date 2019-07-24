@@ -16,7 +16,7 @@ const server = express()
 const io = socketIO(server);
 
 app.get('/', function (req, res) {
-  // res.send('<h1>Hello Voting App</h1>')
+  res.send('<h1>Hello</h1>')
 });
 
 io.on('connection', (socket) => {
