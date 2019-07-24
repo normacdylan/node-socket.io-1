@@ -3,16 +3,16 @@
     <p id='server-time'></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      var socket = io();
-      var el = document.getElementById('server-time');
+      // var socket = io();
+      // var el = document.getElementById('server-time');
 
-      socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
-      });
+      // socket.on('time', function(timeString) {
+      //   el.innerHTML = 'Server time: ' + timeString;
+      // });
 
-      socket.on('msg', function(msg) {
-        el.innerHTML = 'Last message: ' + timeString;
-      } )
+      // socket.on('msg', function(msg) {
+      //   el.innerHTML = 'Last message: ' + timeString;
+      // } )
     </script>
   </body>
 </html>
