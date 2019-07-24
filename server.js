@@ -51,7 +51,7 @@
 'use strict';
 
 const express = require('express');
-const SocketServer = require('ws').Server;
+const WebSocketServer = require('ws').Server;
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
@@ -61,7 +61,7 @@ const server = express()
   .use((req, res) => res.sendFile(INDEX) )
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-const wss = new SocketServer({ server });
+const wss = new WebSocketServer({ server });
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
