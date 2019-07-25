@@ -73,6 +73,7 @@
 var net = require('net');
 
 const PORT = process.env.PORT || 3000;
+const HOST = 'https://powerful-garden-58783.herokuapp.com/';
 
 var server = net.createServer(function(socket) {
   const id = socket.remoteAddress + ':' + socket.remotePort;
@@ -82,7 +83,7 @@ var server = net.createServer(function(socket) {
 	socket.write('Echo server\r\n');
   socket.pipe(socket);
   socket.on('data', function(data) {
-    console.log('received data: ' + data);
+    console.log('received data: ' + data.toString());
   })
   socket.on('end', function() {
     console.log('connection lost with: ' + address + ' : ' + port)
@@ -90,4 +91,4 @@ var server = net.createServer(function(socket) {
   socket.on("error", (err) => console.log("Caught socket error: " + err.stack))
 });
 
-server.listen(PORT, () => console.log('listening to: ' + PORT));
+server.listen(PORT, HOST,  () => console.log('listening to: ' + PORT));
