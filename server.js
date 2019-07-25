@@ -72,11 +72,13 @@
 
 var net = require('net');
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 var server = net.createServer(function(socket) {
   const id = socket.remoteAddress + ':' + socket.remotePort;
-  console.log('connection made with: ' + id)
+  const addressObject = socket.address();
+  const {port, family, address} = addressObject;
+  console.log('connection made with: ' + address + ' : ' + port)
 	socket.write('Echo server\r\n');
   socket.pipe(socket);
   socket.on('data', function(data) {
@@ -87,4 +89,4 @@ var server = net.createServer(function(socket) {
   })
 });
 
-server.listen(port, () => console.log('listening to: ' + port));
+server.listen(PORT, () => console.log('listening to: ' + PORT));
