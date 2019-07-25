@@ -87,6 +87,7 @@ var server = net.createServer(function(socket) {
   socket.on('end', function() {
     console.log('connection lost with: ' + address + ' : ' + port)
   })
+  socket.on("error", (err) => console.log("Caught socket error: " + err.stack))
 });
 
 server.listen(PORT, () => console.log('listening to: ' + PORT));
