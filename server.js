@@ -91,4 +91,5 @@ var server = net.createServer(function(socket) {
   socket.on("error", (err) => console.log("Caught socket error: " + err.stack))
 });
 
-server.listen(PORT, HOST,  () => console.log('listening to: ' + PORT));
+server.listen(PORT, HOST);
+console.log('Server listening to on ' + HOST + ':' + PORT);
