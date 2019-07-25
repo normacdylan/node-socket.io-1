@@ -75,7 +75,7 @@ var net = require('net');
 const port = process.env.PORT || 3000;
 
 var server = net.createServer(function(socket) {
-  const id = client.remoteAddress + ':' + client.remotePort;
+  const id = socket.remoteAddress + ':' + socket.remotePort;
   console.log('connection made with: ' + id)
 	socket.write('Echo server\r\n');
   socket.pipe(socket);
