@@ -90,6 +90,10 @@ var server = net.createServer(function(socket) {
   })
   socket.on("error", (err) => console.log("Caught socket error: " + err.stack))
 });
+server.on('error', (err) => {
+  console.log("Caught server error: " + err.stack)
+  throw err;
+});
 
 server.listen(PORT, HOST);
 console.log('Server listening to on ' + HOST + ':' + PORT);
