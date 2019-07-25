@@ -73,7 +73,7 @@
 var net = require('net');
 
 const PORT = process.env.PORT || 3000;
-const HOST = 'https://powerful-garden-58783.herokuapp.com/';
+// const HOST = 'https://powerful-garden-58783.herokuapp.com/';
 
 var server = net.createServer(function(socket) {
   const id = socket.remoteAddress + ':' + socket.remotePort;
@@ -94,5 +94,5 @@ server.on('error', (err) => {
   console.log("Caught server error: " + err.stack)
 });
 
-server.listen(PORT, HOST);
-console.log('Server listening to on ' + HOST + ':' + PORT);
+server.listen(PORT);
+console.log('Server listening to on ' + PORT);
