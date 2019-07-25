@@ -85,7 +85,7 @@ var server = net.createServer(function(socket) {
     console.log('received data: ' + data);
   })
   socket.on('end', function() {
-    console.log('connection lost with: ' + id)
+    console.log('connection lost with: ' + address + ' : ' + port)
   })
 });
 
